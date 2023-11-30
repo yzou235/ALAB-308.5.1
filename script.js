@@ -55,3 +55,12 @@ function stringsLongerThan(array, n) {
 console.log(stringsLongerThan(stringArray, 5));
 
 // BONUS: Take a number, n, and print every number between 1 and n without using loops. Use recursion.
+function printNumbers(n) {
+    if (n>=1) {
+        printNumbers(n-1);
+        console.log(n);
+    }
+}
+
+printNumbers(6);
+
