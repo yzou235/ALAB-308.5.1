@@ -64,3 +64,49 @@ function printNumbers(n) {
 
 printNumbers(6);
 
+////// Part 2: Thinking Methodically //////
+
+let peopleArray = [{ id: "42", name: "Bruce", occupation: "Knight", age: "41" },
+{ id: "48", name: "Barry", occupation: "Runner", age: "25" },
+{ id: "57", name: "Bob", occupation: "Fry Cook", age: "19" },
+{ id: "63", name: "Blaine", occupation: "Quiz Master", age: "58" },
+{ id: "7", name: "Bilbo", occupation: "None", age: "111" }]
+
+// Sort the array by age.
+peopleArray.sort((a, b) => parseInt(a.age) - parseInt(b.age));
+console.log(peopleArray);
+
+// Filter the array to remove entries with an age greater than 50.
+console.log(peopleArray.filter(person => parseInt(person.age) <= 50));
+
+// Map the array to change the “occupation” key to “job” and increment every age by 1.
+console.log('Using map() method:')
+console.log(
+    peopleArray.map(person => ({
+        id: person.id,
+        name: person.name,
+        job: person.occupation,
+        age: parseInt(person.age) + 1
+    }))
+)
+
+// Use the reduce method to calculate the sum of the ages.
+// .reduce(accumulator, currentValue) has two argument, the first is the call back function, the second is the initial value of the accumulator
+console.log('The sum of the ages is:')
+
+const ageSum = Math.round(
+    peopleArray.reduce((accumulator, person) => {
+    return accumulator + parseInt(person.age);
+}, 0)
+)
+
+console.log(ageSum)
+
+// Then use the result to calculate the average age.
+console.log('The average age is:')
+
+const ageAvg = Math.round(
+    ageSum/peopleArray.length
+);
+
+console.log(ageAvg);
