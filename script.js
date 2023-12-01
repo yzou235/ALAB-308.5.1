@@ -110,3 +110,48 @@ const ageAvg = Math.round(
 );
 
 console.log(ageAvg);
+
+////// Part 3: Thinking Critically //////
+
+// Take an object and increment its age field.
+function incrementAge(object) {
+
+    if (!object.hasOwnProperty('age')){
+        object.age = 0;
+    };
+
+    object.age++;
+
+    object.updated_at = new Date();
+
+    return object;
+}
+
+let testPerson1 = {id: "42", name: "Bruce", occupation: "Knight"};
+console.log("Original:");
+console.log(testPerson1);
+console.log("After:");
+console.log(incrementAge(testPerson1));
+
+// Take an object, make a copy, and increment the age field of the copy. Return the copy.
+function incrementAgeCopy(object) {
+    
+    let objectCopy = {...object}; // create a shallow copy
+
+    if (!objectCopy.hasOwnProperty('age')){
+        objectCopy.age = 0;
+    };
+
+    objectCopy.age++;
+
+    objectCopy.updated_at = new Date();
+
+    return objectCopy;
+
+}
+
+let testPerson2 = { id: "48", name: "Barry", occupation: "Runner", age: "25" };
+console.log("Original:");
+console.log(testPerson2);
+console.log("After:");
+console.log(incrementAgeCopy(testPerson2));
